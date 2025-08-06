@@ -1,6 +1,6 @@
 import unittest
 
-from calculator import add, addNewLine
+from calculator import add, addNewLine, addAllowDelimiters
 
 
 class TestAdd(unittest.TestCase):
@@ -33,6 +33,25 @@ class TestAdd(unittest.TestCase):
 
 		for strInput, expectedResult in testCases.items():
 			result = addNewLine(strInput)
+			self.assertEqual(result, expectedResult)
+
+	def test_addAllowDelimiters(self):
+		""" Test that it can sum a string of integers with a specified Delimiter """
+
+		testCases = {
+			47: 0,
+			"": 0,
+			"1": 0,
+			"//;": 0,
+			"//;\n": 0,
+			"//;\n1;2": 3,
+			"//-\n1-20": 21,
+			"//a\n4a3": 7,
+			"//a\n4aa3": 7,
+		}
+
+		for strInput, expectedResult in testCases.items():
+			result = addAllowDelimiters(strInput)
 			self.assertEqual(result, expectedResult)
 
 if __name__ == "__main_":
