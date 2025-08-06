@@ -16,7 +16,7 @@ class TestAdd(unittest.TestCase):
         
         strInput = "1,5"
         result = add(strInput)
-        self.assertEqual(result, 5)
+        self.assertEqual(result, 6)
 
 if __name__ == "__main_":
     unittest.main()
