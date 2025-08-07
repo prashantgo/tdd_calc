@@ -54,7 +54,7 @@ class TestAdd(unittest.TestCase):
             result = addAllowDelimiters(strInput)
             self.assertEqual(result, expectedResult)
 
-    def test_addDisallowNegative(self):
+    def test_addDisallowNegativeCasesAllowed(self):
         """Test that it can sum a string of integers with a specified Delimiter and negative numbers not allowed."""
 
         positiveTestCases = {
@@ -72,6 +72,9 @@ class TestAdd(unittest.TestCase):
         for strInput, expectedResult in positiveTestCases.items():
             result = addAllowDelimiters(strInput)
             self.assertEqual(result, expectedResult)
+
+    def test_addDisallowNegativeCasesNotAllowed(self):
+        """Test that it can sum a string of integers with a specified Delimiter and negative numbers not allowed."""
 
         negativeTestCases = [
             "//;\n1;-2",
